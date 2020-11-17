@@ -23,8 +23,8 @@ namespace EmailSender
         protected override void OnStart(string[] args)
         {
             _busControl = Bus.Factory.CreateUsingRabbitMq(config =>
-            {
-                config.ReceiveEndpoint("event-listener", e =>
+            {               
+                config.ReceiveEndpoint("mail-receiver", e =>
                 {
                     e.Consumer<EventConsumer>();
                 });

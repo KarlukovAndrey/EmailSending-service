@@ -1,4 +1,5 @@
-﻿using MailKit.Net.Smtp;
+﻿using EmailSender.Services;
+using MailKit.Net.Smtp;
 using MimeKit;
 using System;
 using System.Collections.Generic;
@@ -12,9 +13,10 @@ namespace EmailSender
     public class EmaiSenderService
     {
         Timer timer;
-
-        public EmaiSenderService()
+        EmailInputModel _emailInputModel;
+        public EmaiSenderService(EmailInputModel emailInputModel)
         {
+            _emailInputModel = emailInputModel;
             timer = new Timer(10000);
             timer.Elapsed += SendEmail;
             timer.AutoReset = true;

@@ -121,7 +121,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EmailSender.cs" />
+    <Compile Include="EmaiSenderService.cs" />
     <Compile Include="Installer1.cs">
       <SubType>Component</SubType>
     </Compile>

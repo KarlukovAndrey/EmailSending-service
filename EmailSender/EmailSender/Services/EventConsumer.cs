@@ -9,9 +9,11 @@ namespace EmailSender.Services
 {
     public class EventConsumer : IConsumer<EmailInputModel>
     {
+        EmaiSenderService emaiSenderService;
         public async Task Consume(ConsumeContext<EmailInputModel> context)
         {
-            
+            emaiSenderService = new EmaiSenderService(context.Message);
+            emaiSenderService.SendEmail();
         }
     }
 }
