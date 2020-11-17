@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmailSender.Model
+namespace EmailSender.Services
 {
     public class EmailInputModel
     {
