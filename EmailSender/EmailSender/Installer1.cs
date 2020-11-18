@@ -23,7 +23,7 @@ namespace EmailSender
 
             processInstaller.Account = ServiceAccount.LocalSystem;
             serviceInstaller.StartType = ServiceStartMode.Manual;
-            serviceInstaller.ServiceName = nameof(Service2);
+            serviceInstaller.ServiceName = nameof(EmailService);
             Installers.Add(processInstaller);
             Installers.Add(serviceInstaller);
         }

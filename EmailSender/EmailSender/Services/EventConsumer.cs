@@ -1,8 +1,5 @@
-﻿using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EmailExchanging;
+using MassTransit;
 using System.Threading.Tasks;
 
 namespace EmailSender.Services
@@ -12,8 +9,8 @@ namespace EmailSender.Services
         EmaiSenderService emaiSenderService;
         public async Task Consume(ConsumeContext<EmailInputModel> context)
         {
-            emaiSenderService = new EmaiSenderService(context.Message);
-            emaiSenderService.SendEmail();
+            emaiSenderService = new EmaiSenderService();
+            emaiSenderService.SendEmail(context.Message);
         }
     }
 }

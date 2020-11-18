@@ -129,11 +129,11 @@
       <DependentUpon>Installer1.cs</DependentUpon>
     </Compile>
     <Compile Include="Services\EmailInputModel.cs" />
-    <Compile Include="Service2.cs">
+    <Compile Include="EmailService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Service2.Designer.cs">
-      <DependentUpon>Service2.cs</DependentUpon>
+    <Compile Include="EmailService.Designer.cs">
+      <DependentUpon>EmailService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,34 +8,33 @@ using System.Timers;
 
 namespace EmailSender
 {
-    public partial class Service2 : ServiceBase
+    public partial class EmailService : ServiceBase
     {
-        EmaiSenderService sender;
+       
         private IBusControl _busControl;
-        public Service2()
+        public EmailService()
         {
             InitializeComponent();
             this.CanStop = true;
             this.CanPauseAndContinue = true;
-            this.AutoLog = true;
-        }
-
-        protected override void OnStart(string[] args)
-        {
+            this.AutoLog = true;            
             _busControl = Bus.Factory.CreateUsingRabbitMq(config =>
-            {               
-                config.ReceiveEndpoint("mail-receiver", e =>
+            {
+                config.ReceiveEndpoint("mail-messages", e =>
                 {
                     e.Consumer<EventConsumer>();
                 });
             });
-            sender.Start();
+        }
+
+        protected override void OnStart(string[] args)
+        {
+            _busControl.Start();           
         }
 
         protected override void OnStop()
         {
-            sender.Stop();
+            _busControl.Stop();            
         }
-    }
-   
+    }   
 }

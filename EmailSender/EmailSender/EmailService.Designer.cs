@@ -1,6 +1,6 @@
 ﻿namespace EmailSender
 {
-    partial class Service2
+    partial class EmailService
     {
         /// <summary> 
         /// Required designer variable.
