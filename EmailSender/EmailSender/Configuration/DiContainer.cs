@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using EmailSender.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EmailSender.Configuration
 {
@@ -9,6 +10,7 @@ namespace EmailSender.Configuration
         {
             _serviceProvider = new ServiceCollection()
                 .AddSingleton<MailSettings>()
+                .AddSingleton<SmtpClientService>()
             .BuildServiceProvider();
         }
 

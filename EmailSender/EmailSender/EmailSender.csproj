@@ -130,7 +130,7 @@
   <ItemGroup>
     <Compile Include="Configuration\DiContainer.cs" />
     <Compile Include="Configuration\MailSettings.cs" />
-    <Compile Include="EmaiSenderService.cs" />
+    <Compile Include="Services\EmaiSenderService.cs" />
     <Compile Include="Installer1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -147,6 +147,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\EventConsumer.cs" />
+    <Compile Include="Services\SmtpClientService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

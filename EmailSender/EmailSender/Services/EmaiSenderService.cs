@@ -3,14 +3,17 @@ using EmailSender.Configuration;
 using MailKit.Net.Smtp;
 using MimeKit;
 
-namespace EmailSender
+namespace EmailSender.Services
 {
     public class EmaiSenderService
     {
-        MailSettings  _mailSettings;
+        MailSettings _mailSettings;
+        SmtpClientService _client;
+        
         public EmaiSenderService()
         {
             _mailSettings = DiContainer.GetService<MailSettings>();
+            _client = DiContainer.GetService<SmtpClientService>();
         }
         public void SendEmail(EmailInputModel _emailInputModel)
         {
@@ -23,13 +26,9 @@ namespace EmailSender
             {
                 Text = _emailInputModel.Message
             };
-            using (var client = new SmtpClient())
-            {
-                client.Connect(_mailSettings.SmtpServer, _mailSettings.Port, false);
-                client.Authenticate(_mailSettings.SenderEmail, _mailSettings.Password);
-                client.Send(emailMessage);
-                client.Disconnect(true);
-            }
-        }      
+            
+            _client.SendMessage(emailMessage);
+            
+        }
     }
 }
